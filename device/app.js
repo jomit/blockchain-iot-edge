@@ -1,11 +1,12 @@
 'use strict';
 
+var fs = require('fs');
 var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
 var Message = require('azure-iot-device').Message;
 
 var deviceId = 'leafsensor';
 var deviceConnectionString = "HostName=blockchain-hub.azure-devices.net;DeviceId=leafsensor;SharedAccessKey=<key>";
-var edgeHostName = "gateway.myblockchain.com";
+var edgeHostName = "bcedge";
 var connectionString = deviceConnectionString + ";GatewayHostName=" + edgeHostName;
 console.log(connectionString);
 var client = clientFromConnectionString(connectionString);
@@ -36,4 +37,9 @@ var connectCallback = function (err) {
     }
 };
 
+var options  = {
+    ca : fs.readFileSync("/home/jomit/gatewaycerts/certs/azure-iot-test-only.root.ca.cert.pem", "utf-8").toString()
+};
+
+client.setOptions(options);
 client.open(connectCallback);

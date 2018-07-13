@@ -14,6 +14,12 @@
 
 - Troubshooting [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot)
 
+    - `sudo rm /var/lib/iotedge/cache -f -d -r`
+
+    - `sudo rm /var/lib/iotedge/hsm -f -d -r`
+
+    - `sudo systemctl restart iotedge`
+
 #### Setup
 
 ##### IoT Edge Post GA instructions inprogress...

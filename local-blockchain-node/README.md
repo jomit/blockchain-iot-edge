@@ -20,13 +20,13 @@
 
     - https://geth.ethereum.org/install/#install-on-ubuntu-via-ppas
 
-- Configure geth on the new VM
+- Configure geth on the new edge Ubuntu VM
 
     - `geth init genesis.json`
 
     - update `static-nodes.json` file and upload it to `~/.ethereum/`
 
-    - `geth --networkid 999999 --nodiscover --verbosity 5 console`
+    - `geth --mine --networkid 999999 --verbosity 3 --nodiscover --maxpeers 3 console`
 
 - Verfiy new VM is connected to network 
 
@@ -41,6 +41,10 @@
     - Send 1000 ether to the new account address created above
 
     - `eth.getBalance(eth.accounts[0])`
+
+- Configure local laptop/pi
+
+    - Inprogress...
 
 
 

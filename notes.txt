@@ -1,0 +1,73 @@
+docker login -u edgeregistry -p <password> edgeregistry.azurecr.io
+
+
+sudo nano /etc/iotedge/config.yaml
+
+./certGen.sh create_verification_certificate 83AAE1AFD2414B4F6F6E1E9B4E8F5170871B26CF493939A6
+
+
+./certGen.sh create_edge_device_certificate "edgecacert"
+
+certificates:
+  device_ca_cert: "/home/jomit/gatewaycerts/certs/new-edge-device-full-chain.cert.pem"
+  device_ca_pk: "/home/jomit/gatewaycerts/private/new-edge-device.key.pem"
+  trusted_ca_certs: "/home/jomit/gatewaycerts/certs/azure-iot-test-only.root.ca.cert.pem"
+  
+sudo openssl x509 -in azure-iot-test-only.root.ca.cert.pem -inform PEM -out azure-iot-test-only.root.ca.cert.crt
+
+sudo mkdir /usr/share/ca-certificates/extra
+
+sudo cp azure-iot-test-only.root.ca.cert.crt /usr/share/ca-certificates/extra/azure-iot-test-only.root.ca.cert.crt
+
+sudo dpkg-reconfigure ca-certificates
+
+sudo cat /etc/ca-certificates.conf
+
+	sudo cp /home/jomit/gatewaycerts/certs/azure-iot-test-only.root.ca.cert.pem  /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
+
+	sudo update-ca-certificates
+
+sudo nano /etc/hosts 
+
+		add "mygateway.local"
+
+sudo systemctl restart iotedge
+
+systemctl status iotedge
+
+sudo iotedge list
+
+sudo journalctl -u iotedge
+
+journalctl -u iotedge --no-pager --no-full
+
+
+
+openssl s_client -connect bcedge:8883 -CAfile /home/jomit/gatewaycerts/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
+
+openssl s_client -tls1 -connect bcedge:8883
+
+
+CLEAN UP
+-------------------------
+sudo apt-get remove --purge iotedge
+sudo rm /var/lib/iotedge/cache -f -r
+sudo rm /var/lib/iotedge/hsm -f -r
+
+sudo docker rm $(sudo docker ps -a -q)
+
+sudo docker rmi $(sudo docker images -a -q)
+
+
+sudo apt-get remove --purge moby-engine
+
+sudo apt-get remove --purge moby-cli
+
+
+
+
+
+
+sudo rm /etc/iotedge -f -r
+
+
