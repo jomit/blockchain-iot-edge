@@ -1,4 +1,4 @@
-pragma solidity ^0.4.10;
+pragma solidity ^0.4.22;
 
 contract IoTEdgeContract {
 
@@ -38,7 +38,7 @@ contract IoTEdgeContract {
         return true;
     }
 
-    function getState() public returns (uint8 state) {
+    function getState() public view returns (uint8 state) {
         return uint8(currentState);
     }
 }

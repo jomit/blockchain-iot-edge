@@ -206,5 +206,9 @@ namespace SmartContractModule
             }
             return MessageResponse.Completed;
         }
+
+        static async Task RecordTransaction(string deviceId, string recordData)
+        {
+        }
     }
 }

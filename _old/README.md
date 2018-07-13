@@ -1,3 +1,4 @@
+# ---- DO NOT USE THESE INSTRUCTIONS ----
 # Azure IoT Edge Smart Contract Module for Blockchain 
 
 ![Azure IoT Edge Smart Contract Module for Blockchain](https://raw.githubusercontent.com/jomit/blockchain-iot-edge/master/smart-contract-module.jpg)
