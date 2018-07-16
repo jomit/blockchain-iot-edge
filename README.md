@@ -57,6 +57,12 @@
         - `sudo apt upgrade`
         - `sudo cat /etc/apt/sources.list`
         - `cat /etc/os-release`
+        - `uname -m`
+    - Install nodejs
+        - `wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-armv7l.tar.xz`
+        - `tar -xvf node-v8.11.3-linux-armv7l.tar.xz`
+        - `cd node-v8.11.3-linux-armv7l.tar.xz`
+        - `sudo cp -R * /usr/local/`
 
 #### Build SmartContract and generate ABI and Binary
 
