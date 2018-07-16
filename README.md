@@ -102,7 +102,10 @@
 
 - InProgress...
 
-#### Testing Smartcontract module via simulated leaf device
+#### Testing Smartcontract module via thunderboard sensor device
+
+- Install node-thunderboard-react nodejs package
+        - `sudo npm install --unsafe-perm`
 
 #### Additional Resources
 
