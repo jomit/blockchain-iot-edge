@@ -32,6 +32,11 @@
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+            },
+            "env": {
+              "OptimizeForPerformance": {
+                  "value": "false"
+              }
             }
           }
         },
@@ -42,8 +47,8 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "${MODULES.SmartContractModule.amd64}",
-              "createOptions": ""
+              "image": "${MODULES.SmartContractModule.arm32v7}",
+              "createOptions": "{ \"Env\" : [ \"RPCENDPOINT=http://10.0.0.76:8545\"]}"
             }
           }
         }
@@ -63,7 +68,7 @@
     },
     "SmartContractModule": {
       "properties.desired": {
-        "TemperatureThreshold": 25
+        "TemperatureThreshold": 100
       }
     }
   }

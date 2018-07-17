@@ -75,7 +75,7 @@
 
 #### Test Smartcontract module code
 
-- Start Ganache `ganache-cli --secure -u 0`
+- Start Ganache `ganache-cli --secure -u 0 -h <raspberry pi IP address>`
     - The -u option is to unlock the account, see ganache-cli options for more details.
 - In `testing\Program.cs` update 
     - `abi` and `binary` variables with the ones copied above
@@ -92,18 +92,23 @@
     - `docker login edgeregistry.azurecr.io -u edgeregistry -p <password>`
 - In Visual Studio Code, right click on `BlockchainEdge\deployment.template.json` file and click `Build IoT Edge Solution`. This will build the container images and push to ACR.
 
-- InProgress...
-
 #### Deploy Smartcontract module
 
-- InProgress...
+- In the Azure IoT Hub Devices explorer in Visual Studio Code, right click the edge device, click on `Create deployment for edge device` and select the `BlockchainEdge\config\deployment.json` file.
+    - We can also do this using Azure Portal using Set Modules option.
 
 #### Testing Smartcontract module via simulated leaf device
 
-- InProgress...
+- Copy `device` folder
+- Update IoT hub leaf device connection string
+- `node app.js`
 
 #### Testing Smartcontract module via thunderboard sensor device
 
+- Copy `device` folder
+- Update IoT hub leaf device connection string
+- Start bluetooth on thunderboard
+- `sudo node sensor.js`
 - Install node-thunderboard-react nodejs package
         - `sudo npm install --unsafe-perm`
 
@@ -119,3 +124,9 @@
     - `sudo rm /var/lib/iotedge/cache -f -d -r`
     - `sudo rm /var/lib/iotedge/hsm -f -d -r`
     - `sudo systemctl restart iotedge`
+
+- Docker debugging
+    - `sudo docker exec -it <containerid> bash`
+    - `sudo docker logs -f <containerid>`
+    - `sudo docker rm $(sudo docker ps -a -q) -f`
+    - `sudo docker rmi $(sudo docker images -a -q) -f`

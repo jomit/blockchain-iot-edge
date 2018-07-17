@@ -40,7 +40,8 @@ namespace testing
             var recordFunction = contract.GetFunction("record");
             var getStateFunction = contract.GetFunction("getState");
 
-            transactionHash = await recordFunction.SendTransactionAsync(senderAddress, new HexBigInteger(900000), null, deviceId, recordData);
+            transactionHash = await recordFunction.SendTransactionAsync(
+                senderAddress, new HexBigInteger(900000), null, deviceId, recordData);
             Console.WriteLine($"[Record] Transaction Hash  => {transactionHash}");
             receipt = await web3.Eth.Transactions.GetTransactionReceipt.SendRequestAsync(transactionHash);
 
