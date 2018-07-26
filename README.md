@@ -114,6 +114,11 @@
 - Known Issue
     - The IoT edge module code hangs after connecting to the RPC endpoint if ganache-cli is running on Raspberry PI. Test this by connecting to an Azure Ethereum cluster and changing the Environment variables in the Smart Contract Module.
 
+#### Demo (*click on the image to play the video*)
+
+[![Blockchain IoT Edge Demo](https://img.youtube.com/vi/x06SGGijwXc/0.jpg)](https://youtu.be/x06SGGijwXc)
+
+
 #### Additional Resources
 
 - [Develop C# IoT Edge module on simulated device](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-csharp-module)
