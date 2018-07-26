@@ -1,3 +1,5 @@
+From Drones to Solar Farms to Mining in Oilfields, edge computing has become a very important aspect of most IoT Solutions. As these IoT devices gain more intelligence and become more autonomous, creating a decentralized IoT network becomes crucial for maintaining trust and reducing maintenance cost. The goal of this project is to explore the possibilities of using Blockchain to make edge computing more robust and create protocol for a decentralized IoT network.
+
 # Azure IoT Edge Smart Contract Module for Blockchain 
 
 ![Azure IoT Edge Smart Contract Module for Blockchain](https://raw.githubusercontent.com/jomit/blockchain-iot-edge/master/smart-contract-module.jpg)
