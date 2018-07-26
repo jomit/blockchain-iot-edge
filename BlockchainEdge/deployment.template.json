@@ -35,7 +35,7 @@
             },
             "env": {
               "OptimizeForPerformance": {
-                  "value": "false"
+                "value": "false"
               }
             }
           }
@@ -48,7 +48,18 @@
             "restartPolicy": "always",
             "settings": {
               "image": "${MODULES.SmartContractModule.arm32v7}",
-              "createOptions": "{ \"Env\" : [ \"RPCENDPOINT=http://10.0.0.76:8545\"]}"
+              "createOptions": "{}"
+            },
+            "env": {
+              "RPCENDPOINT": {
+                "value": "http://40.118.229.191:8545"
+              },
+              "SENDER_ADDRESS": {
+                "value": "0x7edc35c275db44bd58eb958d7a1cdee2095439ca"
+              },
+              "SENDER_PASSWORD": {
+                "value": "password"
+              }
             }
           }
         }

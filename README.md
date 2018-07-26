@@ -110,7 +110,9 @@
 - Start bluetooth on thunderboard
 - `sudo node sensor.js`
 - Install node-thunderboard-react nodejs package
-        - `sudo npm install --unsafe-perm`
+    - `sudo npm install --unsafe-perm`
+- Known Issue
+    - The IoT edge module code hangs after connecting to the RPC endpoint if ganache-cli is running on Raspberry PI. Test this by connecting to an Azure Ethereum cluster and changing the Environment variables in the Smart Contract Module.
 
 #### Additional Resources
 

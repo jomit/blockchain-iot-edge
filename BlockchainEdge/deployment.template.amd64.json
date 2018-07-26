@@ -43,7 +43,17 @@
             "restartPolicy": "always",
             "settings": {
               "image": "${MODULES.SmartContractModule.amd64}",
-              "createOptions": ""
+              "createOptions": "{ \"Env\" : [ \"RPCENDPOINT=http://172.18.0.3:8545\"]}"
+            }
+          },
+          "Ganache": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "trufflesuite/ganache-cli:latest",
+              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8545/tcp\":[{\"HostPort\":\"8545\"}]}}}"
             }
           }
         }

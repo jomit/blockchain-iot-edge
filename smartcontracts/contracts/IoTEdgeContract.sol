@@ -16,12 +16,11 @@ contract IoTEdgeContract {
     address settler;
     string setteledData;
     
-    function record(string deviceIdentifier, string data) public returns (bool success) {
+    constructor(string deviceIdentifier, string data) public {
         deviceId = deviceIdentifier;
         recordData = data;
         recorder = msg.sender;
         currentState = States.Recorded;
-        return true;
     }
 
     function verify(string data) public returns (bool success) {
